@@ -15,9 +15,15 @@ function SinglePost({post, index, dispatch}) {
         dispatch(deleteCurrent(index))
       }}>delete</button>
 
-      {edit ? <button onClick={() => {
+      {edit ? <>
+      <button onClick={() => {
         dispatch(editValue({newValue: inputValue, index}))
       }}>save</button>
+      <button onClick={() => {
+        setInputValue(post);
+        setEdit(prevState => !prevState)
+      }}>cencel</button>
+      </>
       : <button onClick={() => {
         setEdit(prevState => !prevState);
       }}>edit</button>}
