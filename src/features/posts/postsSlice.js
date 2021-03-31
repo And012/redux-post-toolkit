@@ -15,12 +15,16 @@ export const slice = createSlice({
     },
     deleteAll: (state) => {
       state.values = [];
+    },
+    //action.payload should come as {newValue: 'string', index: index}
+    editValue: (state, {payload}) => {
+      state.values[payload.index] = payload.newValue;
     }
   }
 });
 export default slice.reducer
 //above is reducer for configureStore
-export const {add, deleteCurrent, deleteAll} =  slice.actions
+export const {add, deleteCurrent, deleteAll, editValue} =  slice.actions
 //above add deleteCurrent edit are action creators if we call them with argument argument will be as payload
 //add(15) --> {type: 'posts/add', payloud: 15}
 //type posts/add is related with the name on line 5 add is related with line 8 method name

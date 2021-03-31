@@ -1,7 +1,8 @@
 import {useSelector, useDispatch} from 'react-redux';
-import {add, deleteCurrent, deleteAll} from './postsSlice';
+import {add, deleteAll} from './postsSlice';
 import {useState,Fragment} from 'react';
 import {nanoid} from 'nanoid';
+import SinglePost from './SinglePost';
 
 function Post(props) {
 
@@ -28,10 +29,8 @@ function Post(props) {
           //using Fragment instead of <></> giving us advantage to use key on it
           return (
             <Fragment key={nanoid()}>
-              <h1>{el}</h1>
-              <button onClick={() => {
-               dispatch(deleteCurrent(index))
-              }}>delete</button>
+              <SinglePost dispatch={dispatch} index={index} post={el}/>
+
           </Fragment>
           )
 
