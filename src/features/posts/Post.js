@@ -1,6 +1,6 @@
 import {useSelector, useDispatch} from 'react-redux';
 import {add, deleteAll} from './postsSlice';
-import {useState,Fragment} from 'react';
+import {useState,Fragment, useCallback} from 'react';
 import {nanoid} from 'nanoid';
 import SinglePost from './SinglePost';
 
@@ -13,7 +13,7 @@ function Post(props) {
   }); //
 
 
-  const dispatch = useDispatch();
+  const dispatch = useDispatch()
   return (
     <div>
       <input value={inputValue} onChange={(e) => {
